@@ -35,4 +35,4 @@ implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
 - 첫 번째 종속 항목은 Retrofit2 라이브러리 자체를 나타낸다
 - 두 번째 종속 항목은 Retrofit 스칼라 변환기로, Retrofit이 JSON 결과를 String으로 반환할 수 있다.
 
-Retrofit을 앱에 적용한 방법은 [여기서]() 볼 수 있다. 
+Retrofit을 앱에 적용한 방법은 [여기서](https://github.com/boiledCompose/19_Mars-Photo/blob/main/RETROFIT.md) 볼 수 있다. 
