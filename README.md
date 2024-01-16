@@ -18,8 +18,9 @@ URL은 리소스가 존재하는 위치와 리소스를 가져오는 메커니�
 
 웹 서비스의 응답(response)은 **XML(eXtensible Markup Language)** 또는 **JSON(JavaScript Object Notation)** 과 같은 일반적인 데이터 형식 중 하나로 형식이 지정된다. JSON 형식은 key-value쌍으로 구조화된 데이터를 나타낸다.
 
-## Retrofit
+<br>
 
+## Retrofit
 
 Retrofit 라이브러리는 REST 벡엔드와 앱 간 통신을 지원하는 외부 라이브러리다. [Retrofit의 문서를 참고하여 더 자세히 알아볼 수 있다.](https://github.com/square/retrofit)
 
@@ -34,3 +35,4 @@ implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
 - 첫 번째 종속 항목은 Retrofit2 라이브러리 자체를 나타낸다
 - 두 번째 종속 항목은 Retrofit 스칼라 변환기로, Retrofit이 JSON 결과를 String으로 반환할 수 있다.
 
+Retrofit을 앱에 적용한 방법은 [여기서]() 볼 수 있다. 
