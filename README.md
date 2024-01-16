@@ -1,38 +1,36 @@
-Mars Photos
-==================================
+## REST
 
-Mars Photos app is a demo app that shows actual images of Mars' surface. These images are
-real-life photos from Mars captured by NASA's Mars rovers. The data is stored on a Web server
-as a REST web service.
+REST는 **RE**presental **S**tate **T**ransfer의 약자로, 웹 서버스 실행을 위해 사용되는 스테이트리스(Stateless) 웹 아키텍처다. 이 아키텍처를 제공하는 웹 서비스를 **RESTful** 서비스라고 한다.
 
-This app demonstrated the use of [Retrofit](https://square.github.io/retrofit/) to make REST requests to the web service, [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) to
-handle the deserialization of the returned JSON to Kotlin data objects, and [Coil](https://coil-kt.github.io/coil/) to load images by URL.
+URI를 통해 표준화된 방식으로 RESTful 웹 서비스에 요청을 전송한다. URI는 이름으로 서버의 리소스를 식별한다.   
+URL은 리소스가 존재하는 위치와 리소스를 가져오는 메커니즘을 지정하는 URI의 하위 집합이다.   
+이 앱 코드에서 사용하는 URI와 URL은 다음과 같다:
 
-Pre-requisites
---------------
+- URI: android-kotlin-fun-mars-server.appspot.com
+- URL: https://android-kotlin-fun-mars-server.appspot.com/realestate?hl=ko
 
-You need to know:
-- How to create Composable functions.
-- How to use architecture components including ViewModel.
-- How to use coroutines for long-running tasks.
-- Familiarity with lazy grid
+### 웹 서비스 요청
 
-Getting Started
----------------
+1. **GET:** 서버 데이터를 가져온다.
+2. **POST:** 서버에 새 데이터를 만든다.
+3. **PUT:** 서버에 있는 기존 데이터를 업데이트한다.
+4. **DELETE:** 서버에서 데이터를 삭제한다.
 
-1. [Install Android Studio](https://developer.android.com/studio/install.html), if you don't already
-   have it.
-2. Download the sample.
-3. Import the sample into Android Studio.
-4. Build and run the sample.
+웹 서비스의 응답(response)은 **XML(eXtensible Markup Language)** 또는 **JSON(JavaScript Object Notation)** 과 같은 일반적인 데이터 형식 중 하나로 형식이 지정된다. JSON 형식은 key-value쌍으로 구조화된 데이터를 나타낸다.
 
-## [Build this app through hands-on codelabs in the Android Basics with Compose Course](https://developer.android.com/courses/android-basics-compose/course)
+## Retrofit
 
-### [Get data from the internet](https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet)
-Learn how to use community-developed libraries to connect to a web service to retrieve and display data in your Android Kotlin compose app. 
 
-### [Add repository and Manual DI](https://developer.android.com/codelabs/basic-android-kotlin-compose-add-repository)
-Learn how to improve the architecture of the app by separating the network calls into a repository.
+Retrofit 라이브러리는 REST 벡엔드와 앱 간 통신을 지원하는 외부 라이브러리다. [Retrofit의 문서를 참고하여 더 자세히 알아볼 수 있다.](https://github.com/square/retrofit)
 
-### [Load and display images from the internet](https://developer.android.com/codelabs/basic-android-kotlin-compose-load-images)
-Use the Coil library to load and display photos from the internet in your Android Compose app. 
+### Retrofit 기본 종속 항목
+Retrofit 라이브러리를 추가하려면 다음 코드를 앱 레벨의 gradle 파일의 의존성에 추가해야 한다.
+```gradle
+// Retrofit
+implementation("com.squareup.retrofit2:retrofit:2.9.0")
+// Retrofit with Scalar Converter
+implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+```
+- 첫 번째 종속 항목은 Retrofit2 라이브러리 자체를 나타낸다
+- 두 번째 종속 항목은 Retrofit 스칼라 변환기로, Retrofit이 JSON 결과를 String으로 반환할 수 있다.
+
